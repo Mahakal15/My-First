@@ -1,0 +1,10 @@
+{
+  "name": "CODE ZERO STORE",
+  "short_name": "CODE ZERO",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080d19",
+  "theme_color": "#080d19",
+  "description": "Create. Upload. Discover. Share.",
+  "icons": []
+}

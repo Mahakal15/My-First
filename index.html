@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080d19">
+  <meta name="description" content="Discover, publish and share free digital resources.">
+  <title>CODE ZERO STORE — Create. Upload. Discover. Share.</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="js/config.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home" aria-label="Code Zero Store home">
+        <span class="brand-mark">CZ</span><span>CODE ZERO <b>STORE</b></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a href="#home" data-route="home" class="nav-link active"><span>⌂</span> Home</a>
+        <a href="#explore" data-route="explore" class="nav-link"><span>◈</span> Explore</a>
+        <a href="#projects" data-route="projects" class="nav-link"><span>▣</span> Projects</a>
+        <a href="#ai-tools" data-route="ai-tools" class="nav-link"><span>✳</span> AI Tools</a>
+        <a href="#blogs" data-route="blogs" class="nav-link"><span>▤</span> Blogs</a>
+        <a href="#pdf-library" data-route="pdf-library" class="nav-link"><span>▧</span> PDF Library</a>
+        <a href="#code-library" data-route="code-library" class="nav-link"><span>⌘</span> Code Library</a>
+        <a href="#learning" data-route="learning" class="nav-link"><span>⌁</span> Learning Hub</a>
+        <a href="#community" data-route="community" class="nav-link"><span>◎</span> Community</a>
+      </nav>
+      <div class="side-label side-label-spaced">PERSONAL</div>
+      <nav class="side-nav">
+        <a href="#saved" data-route="saved" class="nav-link"><span>♡</span> Saved resources</a>
+        <a href="#collections" data-route="collections" class="nav-link"><span>▦</span> Collections</a>
+        <a href="#creator" data-route="creator" class="nav-link"><span>◉</span> Creator Studio</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-note"><span class="status-dot"></span> Public access enabled<br><small>No account required</small></div>
+        <button class="nav-link" id="themeToggle"><span>◐</span> Switch theme</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="icon-btn mobile-menu" id="menuToggle" aria-label="Open menu">☰</button>
+        <div class="breadcrumbs"><span>CODE ZERO</span><i>/</i><b id="currentPage">Home</b></div>
+        <div class="top-actions">
+          <label class="top-search"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search resources..." aria-label="Search resources"><kbd>↵</kbd></label>
+          <button class="icon-btn" id="notificationBtn" aria-label="Notifications">♧</button>
+          <button class="avatar" title="Guest profile">G</button>
+        </div>
+      </header>
+
+      <div class="content" id="view" tabindex="-1">
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="pulse"></span> THE CREATOR RESOURCE NETWORK</div>
+            <h1>Build something<br><em>extraordinary.</em></h1>
+            <p>Discover useful projects, tools, code and knowledge. Share what you create. Everything starts here.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#explore">Explore resources <span>↗</span></a>
+              <a class="btn btn-secondary" href="#upload">Share a resource <span>＋</span></a>
+            </div>
+            <div class="hero-proof"><div class="proof-avatars"><i>C</i><i>Z</i><i>+</i></div><span>Open knowledge. Free access. Built together.</span></div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="art-core"><span>ＣＺ</span><small>CREATE / SHARE</small></div>
+            <div class="float-card float-code"><b>⌘</b><span>CODE</span><small>Build & ship</small></div>
+            <div class="float-card float-pdf"><b>▧</b><span>KNOWLEDGE</span><small>Learn anything</small></div>
+            <div class="float-card float-ai"><b>✳</b><span>AI TOOLS</span><small>Work smarter</small></div>
+          </div>
+        </section>
+
+        <section class="stats-row">
+          <div><strong id="statResources">0</strong><span>Resources listed</span></div>
+          <div><strong>05</strong><span>Core categories</span></div>
+          <div><strong>100%</strong><span>Free to explore</span></div>
+          <div class="live-status"><span class="status-dot"></span> Community is open</div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-heading"><div><div class="eyebrow">BROWSE THE LIBRARY</div><h2>Explore categories</h2></div><a href="#explore" class="text-link">View all resources ↗</a></div>
+          <div class="category-grid">
+            <a class="category-card cat-project" href="#projects"><span class="cat-icon">▣</span><span><b>Projects</b><small>Ready-to-explore builds</small></span><i>↗</i></a>
+            <a class="category-card cat-ai" href="#ai-tools"><span class="cat-icon">✳</span><span><b>AI Tools</b><small>Discover useful AI</small></span><i>↗</i></a>
+            <a class="category-card cat-blog" href="#blogs"><span class="cat-icon">▤</span><span><b>Blogs</b><small>Ideas and insights</small></span><i>↗</i></a>
+            <a class="category-card cat-pdf" href="#pdf-library"><span class="cat-icon">▧</span><span><b>PDF Library</b><small>Documents and notes</small></span><i>↗</i></a>
+            <a class="category-card cat-code" href="#code-library"><span class="cat-icon">⌘</span><span><b>Source Code</b><small>Code worth sharing</small></span><i>↗</i></a>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-heading"><div><div class="eyebrow">FRESH FROM THE COMMUNITY</div><h2>Recently published</h2></div><a href="#explore" class="text-link">Explore library ↗</a></div>
+          <div class="filter-row"><div class="filter-tabs" id="homeFilters"><button class="filter-tab selected" data-filter="All">All</button><button class="filter-tab" data-filter="Projects">Projects</button><button class="filter-tab" data-filter="AI Tools">AI Tools</button><button class="filter-tab" data-filter="Blogs">Blogs</button><button class="filter-tab" data-filter="PDF Documents">PDFs</button><button class="filter-tab" data-filter="Programming Code">Code</button></div><button class="sort-btn" id="sortButton">↕ Latest first</button></div>
+          <div class="resource-grid" id="resourceGrid"></div>
+          <div class="empty-state hidden" id="emptyState"><div>⌕</div><h3>No resources found</h3><p>Try another search or publish the first resource in this category.</p><a class="btn btn-secondary" href="#upload">Submit a resource</a></div>
+        </section>
+
+        <section class="bottom-cta">
+          <div><div class="eyebrow">YOUR WORK BELONGS HERE</div><h2>Have something useful to share?</h2><p>Publish a project, tool, document or code snippet for the community.</p></div>
+          <a class="btn btn-primary" href="#upload">Upload a resource <span>＋</span></a>
+        </section>
+        <footer><span>© <span id="year"></span> CODE ZERO STORE</span><span>Create. Upload. Discover. Share.</span><div><a href="#about">About</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a></div></footer>
+      </div>
+    </main>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#home" data-route="home" class="active"><span>⌂</span>Home</a>
+    <a href="#explore" data-route="explore"><span>◈</span>Explore</a>
+    <a href="#upload" class="mobile-upload"><span>＋</span>Upload</a>
+    <a href="#saved" data-route="saved"><span>♡</span>Saved</a>
+    <a href="#more" data-route="more"><span>•••</span>More</a>
+  </nav>
+
+  <dialog id="uploadDialog" class="modal">
+    <form id="uploadForm" method="dialog">
+      <div class="modal-head"><div><div class="eyebrow">CONTRIBUTE TO THE LIBRARY</div><h2>Submit a resource</h2></div><button type="button" class="icon-btn" id="closeUpload">✕</button></div>
+      <p class="modal-intro">Share something useful. Submissions are saved locally in demo mode, or sent to Supabase when configured.</p>
+      <label class="field-label">Resource title<input name="title" required maxlength="100" placeholder="e.g. Personal portfolio website"></label>
+      <label class="field-label">Category<select name="category" required><option value="Projects">Projects</option><option value="AI Tools">AI Tools</option><option value="Blogs">Blogs</option><option value="PDF Documents">PDF Documents</option><option value="Programming Code">Programming Code</option></select></label>
+      <label class="field-label">Short description<textarea name="description" required maxlength="500" rows="3" placeholder="What does this resource do?"></textarea></label>
+      <label class="field-label">Resource URL (optional)<input name="url" type="url" placeholder="https://..."></label>
+      <label class="field-label">Attach a file (optional)<input name="file" type="file" accept=".pdf,.zip,.txt,.md,.html,.css,.js,.py,.png,.jpg,.jpeg"></label>
+      <div class="form-note">Demo mode stores metadata in this browser only. Configure Supabase for shared publishing and file storage.</div>
+      <div class="modal-actions"><button type="button" class="btn btn-secondary" id="cancelUpload">Cancel</button><button type="submit" class="btn btn-primary">Submit resource ↗</button></div>
+      <p class="form-message" id="uploadMessage" role="status"></p>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
